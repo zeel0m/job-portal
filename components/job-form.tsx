@@ -50,7 +50,8 @@ export function JobForm() {
   }
 
   return (
-    <Card>
+    <Card className="border-border/50 shadow-sm overflow-hidden">
+      <div className="h-1 bg-primary"></div>
       <CardHeader>
         <CardTitle>Post a New Job</CardTitle>
         <CardDescription>Fill out the form below to create a new job listing</CardDescription>
@@ -65,6 +66,7 @@ export function JobForm() {
               placeholder="e.g. Frontend Developer"
               value={formData.title}
               onChange={handleChange}
+              className="bg-background"
               required
             />
           </div>
@@ -77,6 +79,7 @@ export function JobForm() {
               placeholder="e.g. Acme Inc."
               value={formData.company}
               onChange={handleChange}
+              className="bg-background"
               required
             />
           </div>
@@ -89,6 +92,7 @@ export function JobForm() {
               placeholder="e.g. New York, NY (Remote)"
               value={formData.location}
               onChange={handleChange}
+              className="bg-background"
               required
             />
           </div>
@@ -97,7 +101,7 @@ export function JobForm() {
             <div className="space-y-2">
               <Label htmlFor="type">Job Type</Label>
               <Select defaultValue={formData.type} onValueChange={(value) => handleSelectChange("type", value)}>
-                <SelectTrigger id="type">
+                <SelectTrigger id="type" className="bg-background">
                   <SelectValue placeholder="Select job type" />
                 </SelectTrigger>
                 <SelectContent>
@@ -118,6 +122,7 @@ export function JobForm() {
                 placeholder="e.g. $80,000 - $100,000"
                 value={formData.salary}
                 onChange={handleChange}
+                className="bg-background"
                 required
               />
             </div>
@@ -132,6 +137,7 @@ export function JobForm() {
               rows={5}
               value={formData.description}
               onChange={handleChange}
+              className="bg-background"
               required
             />
           </div>
@@ -145,6 +151,7 @@ export function JobForm() {
               rows={4}
               value={formData.requirements}
               onChange={handleChange}
+              className="bg-background"
               required
             />
             <p className="text-xs text-muted-foreground">Enter each requirement on a new line</p>
@@ -159,12 +166,13 @@ export function JobForm() {
               rows={4}
               value={formData.responsibilities}
               onChange={handleChange}
+              className="bg-background"
               required
             />
             <p className="text-xs text-muted-foreground">Enter each responsibility on a new line</p>
           </div>
         </CardContent>
-        <CardFooter className="flex justify-between">
+        <CardFooter className="flex justify-between border-t border-border/50 bg-muted/30 px-6 py-4">
           <Button variant="outline" type="button" onClick={() => router.back()}>
             Cancel
           </Button>

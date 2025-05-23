@@ -11,7 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { User, Menu, X } from "lucide-react"
+import { User, Menu, X, Briefcase } from "lucide-react"
 import { useState } from "react"
 
 export function Header() {
@@ -32,6 +32,9 @@ export function Header() {
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-8">
           <Link href="/" className="flex items-center space-x-2">
+            <div className="flex items-center justify-center w-8 h-8 rounded-md bg-primary text-primary-foreground">
+              <Briefcase className="h-4 w-4" />
+            </div>
             <span className="text-xl font-bold">JobBoard</span>
           </Link>
 
@@ -60,11 +63,13 @@ export function Header() {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" size="icon" className="rounded-full">
-                    <User className="h-5 w-5" />
+                    <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary">
+                      <User className="h-4 w-4" />
+                    </div>
                     <span className="sr-only">User menu</span>
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
+                <DropdownMenuContent align="end" className="w-56">
                   <div className="flex items-center justify-start gap-2 p-2">
                     <div className="flex flex-col space-y-1 leading-none">
                       <p className="font-medium">{user.name}</p>
